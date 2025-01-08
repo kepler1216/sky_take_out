@@ -23,4 +23,10 @@ public interface EmployeeService {
 
 //    启用和禁用员工账号
     void startOrStop(Integer status, long id);
+
+//    根据id查询员工
+    Employee getById(long id);
+
+//    编辑员工信息
+    void update(EmployeeDTO employeeDTO);
 }
