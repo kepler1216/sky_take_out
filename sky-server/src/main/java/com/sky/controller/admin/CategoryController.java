@@ -1,5 +1,6 @@
 package com.sky.controller.admin;
 import com.sky.dto.CategoryDTO;
+import com.sky.result.PageResult;
 import com.sky.result.Result;
 import com.sky.service.CategoryService;
 import io.swagger.annotations.Api;
@@ -30,4 +31,5 @@ public class CategoryController {
         categoryService.save(categoryDTO);
         return Result.success();
     }
+
 }
