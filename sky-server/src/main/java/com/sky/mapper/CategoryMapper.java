@@ -1,6 +1,7 @@
 package com.sky.mapper;
 
 import com.github.pagehelper.Page;
+import com.sky.dto.CategoryDTO;
 import com.sky.dto.CategoryPageQueryDTO;
 import com.sky.entity.Category;
 import org.apache.ibatis.annotations.Insert;
@@ -21,4 +22,7 @@ public interface CategoryMapper {
 
 //    根据类型查询分类
     List<Category> list(Integer type);
+
+//    修改分类
+    void update(Category category);
 }

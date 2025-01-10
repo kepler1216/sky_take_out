@@ -17,4 +17,7 @@ public interface CategoryService {
 
 //    根据类型查询分类
     List<Category> list(Integer type);
+
+//    修改分类
+    void update(CategoryDTO categoryDTO);
 }

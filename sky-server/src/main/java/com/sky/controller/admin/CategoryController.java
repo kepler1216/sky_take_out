@@ -8,6 +8,7 @@ import com.sky.service.CategoryService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -50,4 +51,11 @@ public class CategoryController {
         return Result.success(list);
     }
 
+//    修改分类
+    @PutMapping
+    @ApiOperation("修改分类")
+    public Result<String> update(@RequestBody CategoryDTO categoryDTO){
+        categoryService.update(categoryDTO);
+        return Result.success();
+    }
 }
