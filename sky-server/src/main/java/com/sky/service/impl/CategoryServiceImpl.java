@@ -21,7 +21,8 @@ import java.util.List;
 public class CategoryServiceImpl implements CategoryService {
     @Autowired
     private CategoryMapper categoryMapper;
-//    新增分类
+
+    //    新增分类
     @Override
     public void save(CategoryDTO categoryDTO) {
         Category category = new Category();
@@ -42,14 +43,14 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public PageResult pageQuery(CategoryPageQueryDTO categoryPageQueryDTO) {
-        PageHelper.startPage(categoryPageQueryDTO.getPage(),categoryPageQueryDTO.getPageSize());
-        Page<Category> page=categoryMapper.pageQuery(categoryPageQueryDTO);
-        long total= page.getTotal();
-        List<Category> records=page.getResult();
-        return new PageResult(total,records);
+        PageHelper.startPage(categoryPageQueryDTO.getPage(), categoryPageQueryDTO.getPageSize());
+        Page<Category> page = categoryMapper.pageQuery(categoryPageQueryDTO);
+        long total = page.getTotal();
+        List<Category> records = page.getResult();
+        return new PageResult(total, records);
     }
 
-//    根据类型查询分类
+    //    根据类型查询分类
     @Override
     public List<Category> list(Integer type) {
         return categoryMapper.list(type);
@@ -59,10 +60,22 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public void update(CategoryDTO categoryDTO) {
-        Category category=new Category();
+        Category category = new Category();
         BeanUtils.copyProperties(categoryDTO, category);
         category.setUpdateTime(LocalDateTime.now());
         category.setUpdateUser(BaseContext.getCurrentId());
+        categoryMapper.update(category);
+    }
+
+    //    启用禁用分类
+    @Override
+    public void startOrStop(Integer status, Long id) {
+        Category category = Category.builder()
+                .id(id)
+                .status(status)
+                .updateTime(LocalDateTime.now())
+                .updateUser(BaseContext.getCurrentId())
+                .build();
         categoryMapper.update(category);
     }
 }
