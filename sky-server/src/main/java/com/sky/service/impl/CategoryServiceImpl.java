@@ -48,4 +48,10 @@ public class CategoryServiceImpl implements CategoryService {
         List<Category> records=page.getResult();
         return new PageResult(total,records);
     }
+
+//    根据类型查询分类
+    @Override
+    public List<Category> list(Integer type) {
+        return categoryMapper.list(type);
+    }
 }
