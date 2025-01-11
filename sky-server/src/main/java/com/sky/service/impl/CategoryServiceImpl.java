@@ -37,14 +37,14 @@ public class CategoryServiceImpl implements CategoryService {
         BeanUtils.copyProperties(categoryDTO, category);
 //        分类状态 0标识禁用 1表示启用
         category.setStatus(StatusConstant.ENABLE);
-//        创建时间
-        category.setCreateTime(LocalDateTime.now());
-//        更新时间
-        category.setUpdateTime(LocalDateTime.now());
-//        创建人
-        category.setCreateUser(BaseContext.getCurrentId());
-//        修改人
-        category.setUpdateUser(BaseContext.getCurrentId());
+////        创建时间
+//        category.setCreateTime(LocalDateTime.now());
+////        更新时间
+//        category.setUpdateTime(LocalDateTime.now());
+////        创建人
+//        category.setCreateUser(BaseContext.getCurrentId());
+////        修改人
+//        category.setUpdateUser(BaseContext.getCurrentId());
 
         categoryMapper.insert(category);
     }
@@ -70,8 +70,8 @@ public class CategoryServiceImpl implements CategoryService {
     public void update(CategoryDTO categoryDTO) {
         Category category = new Category();
         BeanUtils.copyProperties(categoryDTO, category);
-        category.setUpdateTime(LocalDateTime.now());
-        category.setUpdateUser(BaseContext.getCurrentId());
+//        category.setUpdateTime(LocalDateTime.now());
+//        category.setUpdateUser(BaseContext.getCurrentId());
         categoryMapper.update(category);
     }
 
@@ -81,8 +81,8 @@ public class CategoryServiceImpl implements CategoryService {
         Category category = Category.builder()
                 .id(id)
                 .status(status)
-                .updateTime(LocalDateTime.now())
-                .updateUser(BaseContext.getCurrentId())
+//                .updateTime(LocalDateTime.now())
+//                .updateUser(BaseContext.getCurrentId())
                 .build();
         categoryMapper.update(category);
     }
