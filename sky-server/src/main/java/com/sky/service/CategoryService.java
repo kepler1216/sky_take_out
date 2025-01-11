@@ -23,4 +23,7 @@ public interface CategoryService {
 
 //    启用禁用分类
     void startOrStop(Integer status, Long id);
+
+//    根据id删除分类
+    void deleteById(Long id);
 }
