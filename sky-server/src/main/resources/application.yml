@@ -37,3 +37,11 @@ sky:
     admin-ttl: 7200000000000000000
     # 设置前端传递过来的令牌名称
     admin-token-name: token
+
+minio:
+  config:
+    url: http://192.168.1.103:9000  #ip地址
+    accessKey: U6r8tAvpYQUan53S15uW #  账号
+    secretKey: dksw3i4aY63iEa9DzXAEjQyOVRY438WcNE5wtifx #  密码
+    secure: false #如果是true，则用的是https而不是http,默认值是true
+    bucketName: "sky-itcast"  # 桶的名字 相当于文件夹
