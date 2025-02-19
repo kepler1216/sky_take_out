@@ -13,7 +13,5 @@ public interface DishFlavorMapper {
     void insertBatch(List<DishFlavor> flavors);
 
 //    根据菜品id删除口味数据
-    @Delete("delete from dish_flavor where id=#{dishId}")
-    void deleteByDishId(Long dishId);
-
+    void deleteByDishIds(List<Long> dishIds);
 }
