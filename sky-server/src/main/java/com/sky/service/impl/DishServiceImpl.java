@@ -39,6 +39,7 @@ public class DishServiceImpl implements DishService {
     @Autowired
     private SetmealDishMapper setmealDishMapper;
 
+//    新增菜品
     @Transactional
     public void saveWithFlavor(DishDTO dishDTO) {
 //        向菜品表插入一条数据
@@ -135,6 +136,13 @@ public class DishServiceImpl implements DishService {
                 .id(id)
                 .build();
         dishMapper.update(dish);
+    }
+
+
+//    根据分类id查询菜品
+    @Override
+    public List<Dish> getDishByCategoryId(Long id) {
+        return dishMapper.getDishByCategoryId(id);
     }
 
 }
