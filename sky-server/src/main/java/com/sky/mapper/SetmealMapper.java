@@ -9,6 +9,8 @@ import com.sky.vo.SetmealVO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
+import java.util.List;
+
 @Mapper
 public interface SetmealMapper {
 //    根据分类id查询套餐数量
@@ -25,4 +27,7 @@ public interface SetmealMapper {
 
 //    分页查询
     Page<SetmealVO> pageQuery(SetmealPageQueryDTO setmealPageQueryDTO);
+
+//    批量删除菜品
+    void delete(List<Long> ids);
 }
