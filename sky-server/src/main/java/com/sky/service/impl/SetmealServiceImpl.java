@@ -88,6 +88,12 @@ public class SetmealServiceImpl implements SetmealService {
         setmealMapper.delete(ids);
     }
 
+    @Override
+    public void startOrStop(Integer status, Long id) {
+        Setmeal setmeal=Setmeal.builder().status(status).id(id).build();
+        setmealMapper.update(setmeal);
+    }
+
     //    修改套餐
     @Override
     public void update(SetmealDTO setmealDTO) {
