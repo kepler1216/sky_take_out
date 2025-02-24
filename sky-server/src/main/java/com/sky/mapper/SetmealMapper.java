@@ -30,4 +30,8 @@ public interface SetmealMapper {
 
 //    批量删除菜品
     void delete(List<Long> ids);
+
+//    修改套餐
+    @AutoFill(OperationType.UPDATE)
+    void update(Setmeal setMeal);
 }
