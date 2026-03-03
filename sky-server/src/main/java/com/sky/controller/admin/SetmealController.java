@@ -12,7 +12,6 @@ import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
@@ -26,6 +25,7 @@ public class SetmealController {
 
     @PostMapping
     @ApiOperation("新增套餐")
+
 //    新增套餐
     public Result save(@RequestBody SetmealDTO setmealDTO){
         setmealService.saveWithDish(setmealDTO);
@@ -58,6 +58,7 @@ public class SetmealController {
         setmealService.delete(ids);
         return Result.success();
     }
+
 //    修改套餐
     @PutMapping
     @ApiOperation("修改套餐")
